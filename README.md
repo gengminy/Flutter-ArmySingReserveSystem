@@ -1,4 +1,4 @@
-# singroom2
+# singroom
 
 Singing Room Reservation System
 
