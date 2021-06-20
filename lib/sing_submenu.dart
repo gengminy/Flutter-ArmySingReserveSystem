@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterstudy/sing_page_reserve.dart';
+import 'package:singroom2/sing_page_reserve.dart';
 
 class AppBarSubMenu extends StatelessWidget {
   @override

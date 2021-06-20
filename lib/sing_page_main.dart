@@ -1,37 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutterstudy/sing_submenu.dart';
-import 'package:flutterstudy/sing_page_reserve.dart';
+import 'package:singroom2/sing_submenu.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-
-      title: '운용중대 노래방 예약 어플',
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: MyHomePage(
-        title: '운용중대 노래방 예약 도우미',
-
-      ),
-
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+class PageMain extends StatefulWidget {
+  PageMain({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _PageMainState createState() => _PageMainState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _PageMainState extends State<PageMain> {
   //예약 인원 수 (대기중인 인원)
   int _reservedMan = 0;
 
