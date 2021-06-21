@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
-                Colors.blue,
+                Colors.blueAccent,
                 Colors.blue,
               ],
               begin: Alignment.topLeft,
@@ -66,6 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                       Text("운용 노래방 예약", style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 33,
+                        color: Colors.white,
                       ),),
                     ],
                   ),
@@ -129,30 +130,25 @@ class _LoginPageState extends State<LoginPage> {
                           height: 50.0,
                         ),
                         Container(
-                            height: 50,
+                            width: 300, height: 50,
                             margin: EdgeInsets.symmetric(horizontal: 50),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.blueAccent,
+                            child: RaisedButton(
+                                onPressed: (){}, color: Colors.blueAccent, textColor: Colors.white,
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular((30.0)))),
+                              child: Text("로그인", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
                             ),
-                            child: Center(
-                                child: Text("로그인", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16,))
-                            )
                         ),
                         SizedBox(
                           height: 20.0,
                         ),
                         Container(
-
-                            height: 50,
-                            margin: EdgeInsets.symmetric(horizontal: 50),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: Colors.blueGrey,
-                            ),
-                            child: Center(
-                                child: Text("승인요청", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16,))
-                            ),
+                          width: 300, height: 50,
+                          margin: EdgeInsets.symmetric(horizontal: 50),
+                          child: RaisedButton(
+                            onPressed: (){}, color: Colors.blueGrey, textColor: Colors.white,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular((30.0)))),
+                            child: Text("승인요청", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+                          ),
                         ),
                         Container(
                           width: double.infinity,
