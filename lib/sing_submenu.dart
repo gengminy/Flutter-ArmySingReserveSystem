@@ -12,7 +12,7 @@ class AppBarSubMenu extends StatelessWidget {
         children: [
           ListTile( title: Text('예약하기', textScaleFactor: 1.5,), onTap: ()=>{
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context)=>Reserve())
+              MaterialPageRoute(builder: (context)=>Reserve(title: '예약하기',))
             )
           }),
           Divider(),

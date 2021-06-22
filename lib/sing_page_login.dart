@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:singroom2/sing_page_main.dart';
+import 'package:singroom2/sing_page_membership.dart';
 
 void main() => runApp(MyApp());
 
@@ -145,10 +146,25 @@ class _LoginPageState extends State<LoginPage> {
                           width: 300, height: 50,
                           margin: EdgeInsets.symmetric(horizontal: 50),
                           child: RaisedButton(
-                            onPressed: (){}, color: Colors.blueGrey, textColor: Colors.white,
+                            onPressed: (){
+                              Navigator.of(context).push(
+                                  MaterialPageRoute(builder: (context)=>PageMembership(title: '승인요청',))
+                              );
+                            }, color: Colors.blueGrey, textColor: Colors.white,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular((30.0)))),
-                            child: Text("승인요청", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+                            child: Text("회원가입", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
                           ),
+                        ),
+                        SizedBox(
+                          height: 5.0,
+                        ),
+                        TextButton(
+                          child: Text('비밀번호 찾기', style: TextStyle(color: Colors.blue),),
+                          onPressed: (){},
+                          style: TextButton.styleFrom(
+                            primary: Colors.blue,
+                          ),
+
                         ),
                         Container(
                           width: double.infinity,
@@ -161,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                                 onPressed: (){
                                   //Navigator.of(context).pop();
                                   Navigator.of(context).push(
-                                      MaterialPageRoute(builder: (context)=>PageMain(title: '운용중대 노래방 도우미',))
+                                      MaterialPageRoute(builder: (context)=>PageMain(title: '운용중대 노래방 예약',))
                                   );
                                 },
                                 color: Colors.white,
