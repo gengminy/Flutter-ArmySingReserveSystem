@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:singroom2/sing_submenu.dart';
 import 'package:singroom2/sing_page_reserve.dart';
+import 'package:singroom2/sing_page_reserve_list.dart';
 
 class PageMain extends StatefulWidget {
   PageMain({Key? key, required this.title}) : super(key: key);
@@ -13,12 +14,14 @@ class PageMain extends StatefulWidget {
 
 class _PageMainState extends State<PageMain> {
   //예약 인원 수 (대기중인 인원)
-  int _reservedMan = 0;
-
+  int _reservedMan = getReserveListLength();
   //예약인원수 1 증가
   void increaseManCount() { setState(() { _reservedMan++; });  }
   //예약인원수 1 감소
   void decreaseManCount(){ setState(() { if(_reservedMan>0) _reservedMan--; }); }
+  //예약인원 갱신
+  void renewManCount(){ _reservedMan = getReserveListLength(); }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +48,7 @@ class _PageMainState extends State<PageMain> {
                   Text('현재 대기중인 인원', style: TextStyle(
                     fontSize: 25.0,
                   )),
+                  SizedBox(height: 15),
                   Text('$_reservedMan', style: TextStyle(
                     fontSize: 100.0,
                     fontWeight: FontWeight.bold,
@@ -53,7 +57,7 @@ class _PageMainState extends State<PageMain> {
               ),
               alignment: Alignment.center,
             ),
-            SizedBox( height: 80.0, ),
+            SizedBox( height: 50.0, ),
             Container(
               width: 300, height: 50,
               margin: EdgeInsets.symmetric(horizontal: 50),
@@ -73,6 +77,9 @@ class _PageMainState extends State<PageMain> {
               margin: EdgeInsets.symmetric(horizontal: 50),
               child: RaisedButton(
                 onPressed: (){
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context)=>ReserveList(title: '예약현황',))
+                  );
                 }, color: Colors.deepOrangeAccent, textColor: Colors.white,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular((30.0)))),
                 child: Text("예약현황", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),

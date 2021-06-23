@@ -135,7 +135,7 @@ class _PageMembershipState extends State<PageMembership> {
                 ),
                 Text('$_pwdMatchText', style: TextStyle(color: Colors.red),),
                 SizedBox(
-                  height: 10.0,
+                  height: 40.0,
                 ),
                 Container(
                   width: 300, height: 50,

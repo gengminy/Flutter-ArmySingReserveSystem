@@ -159,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 5.0,
                         ),
                         TextButton(
-                          child: Text('비밀번호 찾기', style: TextStyle(color: Colors.blue),),
+                          child: Text('비밀번호 찾기', style: TextStyle(color: Colors.blue, decoration: TextDecoration.underline),),
                           onPressed: (){},
                           style: TextButton.styleFrom(
                             primary: Colors.blue,
