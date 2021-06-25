@@ -112,7 +112,6 @@ class _LoginPageState extends State<LoginPage> {
                           height: 20.0,
                         ),
                         TextField(
-                          keyboardType: TextInputType.numberWithOptions(),
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8.0),

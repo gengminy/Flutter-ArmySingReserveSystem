@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:singroom2/sing_submenu.dart';
 import 'package:singroom2/sing_page_reserve.dart';
 import 'package:singroom2/sing_page_reserve_list.dart';
 
@@ -18,8 +17,11 @@ class _PageMainState extends State<PageMain> {
   String _userName = '경민';
   String _userSerialNumber = '20-76022730';
 
+
   //예약 인원 수 (대기중인 인원)
   int _reservedMan = getReserveListLength();
+  //내 순번
+  int _myOrder = 1;
   //예약인원수 1 증가
   void increaseManCount() { setState(() { _reservedMan++; });  }
   //예약인원수 1 감소
@@ -152,18 +154,23 @@ class _PageMainState extends State<PageMain> {
                 child: Column(
                   children: <Widget>[
                     Text('현재 대기중인 인원', style: TextStyle(
-                      fontSize: 25.0,
+                      fontSize: 27.0,
                     )),
                     SizedBox(height: 15),
                     Text('$_reservedMan', style: TextStyle(
                       fontSize: 100.0,
                       fontWeight: FontWeight.bold,
-                    ),),
+                    )),
+                    SizedBox(height: 20),
+                    Text('내 순번 : '+'$_myOrder', style:TextStyle(
+                      fontSize: 18.0,
+                    ))
+
                   ],
                 ),
                 alignment: Alignment.center,
               ),
-              SizedBox(height: 50.0,),
+              SizedBox(height: 30.0,),
               Container(
                 width: 300, height: 50,
                 margin: EdgeInsets.symmetric(horizontal: 50),
