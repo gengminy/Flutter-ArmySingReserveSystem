@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:singroom2/sing_page_reserve.dart';
 import 'package:singroom2/sing_page_reserve_list.dart';
+import 'package:singroom2/sing_page_profile.dart';
 
 class PageMain extends StatefulWidget {
   PageMain({Key? key, required this.title}) : super(key: key);
@@ -14,9 +15,9 @@ class PageMain extends StatefulWidget {
 
 class _PageMainState extends State<PageMain> {
   //로그인 정보 받아옴
-  String _userName = '경민';
-  String _userSerialNumber = '20-76022730';
-
+  final String _userName = '경민';
+  final String _userSerialNumber = '20-76022730';
+  bool _userReserved = false;
 
   //예약 인원 수 (대기중인 인원)
   int _reservedMan = getReserveListLength();
@@ -38,6 +39,13 @@ class _PageMainState extends State<PageMain> {
       onTap: (){ Navigator.of(context).pop(); onTap(); },
     );
   }
+
+  Widget _createCancelFlatButton()=>FlatButton(
+      child: Text('예'),
+      onPressed: (){
+        //cancel
+      },
+    );
 
   //로그아웃 알림창 출력
   Future<void> _logoutDialog(){
@@ -123,7 +131,10 @@ class _PageMainState extends State<PageMain> {
                   color: Colors.orangeAccent,
                 ),
               ),
-              _createDrawerListTile(Icons.account_circle_sharp, '프로필', () {}),
+              _createDrawerListTile(Icons.account_circle_sharp, '프로필', () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => Profile(title: '프로필',)));
+              }),
               Divider(height: 0),
               _createDrawerListTile(Icons.person_add, '예약하기', () {
                 Navigator.of(context).push(MaterialPageRoute(
@@ -135,7 +146,22 @@ class _PageMainState extends State<PageMain> {
                     builder: (context) => ReserveList(title: '예약현황',)));
               }),
               Divider(height: 0),
-              _createDrawerListTile(Icons.timer_off, '예약취소', () {}),
+              _createDrawerListTile(Icons.timer_off, '예약취소', () {
+                  showDialog(context: context,
+                     builder: (context)=> AlertDialog(
+                       title: Text(_userReserved ? '예약취소':'알림'),
+                       content: Text(_userReserved ? '정말로 취소 하시겠습니까?' : '예약 내역이 없습니다'),
+                       actions: [
+                         FlatButton(
+                           child: Text(_userReserved ? '아니오' : '확인'),
+                           onPressed: (){ Navigator.of(context).pop(); },
+                         ),
+                         if(_userReserved) _createCancelFlatButton(),
+                       ],
+                     )
+                  );
+                }
+              ),
               Divider(height: 0),
               _createDrawerListTile(Icons.settings, '설정', () {}),
               Divider(height: 0),
