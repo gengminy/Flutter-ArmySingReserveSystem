@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:singroom2/sing_page_reserve_complete.dart';
 
 class Reserve extends StatefulWidget {
   Reserve({Key? key, required this.title}) : super(key: key);
@@ -114,7 +115,10 @@ class _ReserveState extends State<Reserve>{
                   margin: EdgeInsets.symmetric(horizontal: 50),
                   child: RaisedButton(
                     onPressed: () {
-
+                      Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => ReserveComplete() )
+                      );
                     },
                     color: Colors.orangeAccent,
                     textColor: Colors.white,

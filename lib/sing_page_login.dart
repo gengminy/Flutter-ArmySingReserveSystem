@@ -165,6 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
 
                         ),
+
                         Container(
                           width: double.infinity,
                           child: Row(
@@ -172,6 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               //******삭제예정(테스트용)***********
+
                               RaisedButton(
                                 onPressed: (){
                                   //Navigator.of(context).pop();
@@ -193,11 +195,8 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               //******삭제예정(테스트용)***********
-
                             ],
-
                           )
-
                         )
                       ],
 

@@ -17,7 +17,7 @@ class _PageMainState extends State<PageMain> {
   //로그인 정보 받아옴
   final String _userName = '경민';
   final String _userSerialNumber = '20-76022730';
-  bool _userReserved = false;
+  bool _userReserved = true;
 
   //예약 인원 수 (대기중인 인원)
   int _reservedMan = getReserveListLength();
